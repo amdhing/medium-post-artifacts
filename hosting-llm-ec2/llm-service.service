@@ -1,0 +1,32 @@
+[Unit]
+Description=LLM Service with FastAPI
+After=network.target ollama.service
+Requires=ollama.service
+
+[Service]
+Type=simple
+User=ec2-user
+Group=ec2-user
+WorkingDirectory=/home/ec2-user/llm-service
+ExecStart=/usr/bin/python3 /home/ec2-user/llm-service/app.py
+Restart=always
+RestartSec=10
+StandardOutput=journal
+StandardError=journal
+
+# Environment variables
+Environment=PYTHONPATH=/home/ec2-user/llm-service
+Environment=PYTHONUNBUFFERED=1
+
+# Resource limits
+LimitNOFILE=65536
+MemoryMax=4G
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+ReadWritePaths=/home/ec2-user/llm-service/logs
+
+[Install]
+WantedBy=multi-user.target

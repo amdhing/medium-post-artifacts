@@ -1,7 +1,7 @@
 #!/bin/bash
 # Complete EC2 instance setup for LLM hosting
 # Author: Aman Dhingra
-# Usage: curl -fsSL https://raw.githubusercontent.com/your-username/medium-post-artifacts/main/hosting-llm-ec2/setup_instance.sh | bash
+# Usage: curl -fsSL https://raw.githubusercontent.com/amdhing/medium-post-artifacts/main/hosting-llm-ec2/setup_instance.sh | bash
 
 set -e
 
@@ -51,7 +51,7 @@ cd /home/ec2-user/llm-service
 
 # Download project files from GitHub
 echo "📥 Downloading project files..."
-REPO_BASE="https://raw.githubusercontent.com/your-username/medium-post-artifacts/main/hosting-llm-ec2"
+REPO_BASE="https://raw.githubusercontent.com/amdhing/medium-post-artifacts/main/hosting-llm-ec2"
 
 curl -fsSL "$REPO_BASE/app.py" -o app.py
 curl -fsSL "$REPO_BASE/requirements.txt" -o requirements.txt
